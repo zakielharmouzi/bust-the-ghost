@@ -76,10 +76,16 @@ public class Game : MonoBehaviour
     public void CheckInputGrid()
     {
         int Distance = 0, DistanceX = 0, DistanceY = 0;
-        
+       
         if (Input.GetButtonDown("Fire1"))
         {
             num_of_busts++;
+
+            if (num_of_busts > 58)
+            {
+                Debug.Log("Number of busts exceeded 20!");
+                return;
+            }
 
             Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             int a = Mathf.RoundToInt(mousePosition.x);
@@ -300,9 +306,6 @@ public class Game : MonoBehaviour
                         grid[x, y]=color;
                         NumberOfOranges++;
                         }
-                                 
-                                    
-                
             }
         }
     }
